@@ -2,7 +2,7 @@ package P01;
 
 public class CasoSWII {
     public static void main(String[] args) {
-        // Crear comidas usando el Factory
+
         Comida pizza = ComidaFactory.crearComida("pizza");
         Comida ensalada = ComidaFactory.crearComida("ensalada");
         Comida hamburguesa = ComidaFactory.crearComida("hamburguesa");
@@ -12,7 +12,6 @@ public class CasoSWII {
         System.out.println("- " + ensalada.getNombre() + " S/." + ensalada.getPrecio());
         System.out.println("- " + hamburguesa.getNombre() + " S/." + hamburguesa.getPrecio());
 
-        // Crear pedido
         Pedido pedido = new Pedido();
         pedido.agregarComida(pizza);
         pedido.agregarComida(ensalada);
@@ -24,7 +23,6 @@ public class CasoSWII {
         pedido.setEstado(EstadoPedido.EN_PREPARACION);
         System.out.println("Estado actualizado: " + pedido.getEstado().toString().toLowerCase());
 
-        // Registrar pedido en el gestor (Singleton)
         GestorPedidos gestor1 = GestorPedidos.getInstancia();
         gestor1.registrarPedido(pedido);
 
@@ -33,7 +31,6 @@ public class CasoSWII {
             System.out.println("- " + p);
         }
 
-        // Comprobación de instancia única
         GestorPedidos gestor2 = GestorPedidos.getInstancia();
         System.out.println("\n¿Gestores son iguales? " + (gestor1 == gestor2));
     }
